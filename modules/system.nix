@@ -151,6 +151,8 @@
   #   https://github.com/LnL7/nix-darwin/issues/359
   # time.timeZone = "Asia/shanghai";
 
+  # Install packages from nix's official package repository
+  # It's less stable than homebrew on macOS, so we mainly use homebrew to install packages.
   environment.systemPackages = with pkgs; [
     neovim
     git
