@@ -1,5 +1,7 @@
 # Nix Darwin Kickstart - Minimal
 
+A minimal configuration that only contains the necessary configuration to start using nix-darwin, and can be safely deployed to your own system.
+
 ## How to Start
 
 1. Install [Nix](https://nixos.org/download.html)

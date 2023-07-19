@@ -1,6 +1,10 @@
 # Nix Darwin Kickstart - Rich Demo
 
-This example is intended to be a rich demo of the capabilities of nix-darwin.
+A rich demo that contains a lot of configuration that can be used as a reference for your own configuration, but it may **OVERWRITE** your system configuration, so please be careful.
 
-It is not intended to be a starting point for your own configuration(it may OVERWRITE your system configuration!), but rather a reference for what is possible.
 
+## How to Start
+
+1. Start your nix-darwin journey by following the [minimal](../minimal) configuration.
+2. Read all the files in this repository, and understand what they do.
+3. Copy and CUSTOMIZE the configuration you need to your own configuration.

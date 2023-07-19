@@ -13,7 +13,8 @@
     experimental-features = [ "nix-command" "flakes" ];
 
     substituters = [
-      # replace official cache with a mirror located in China
+      # Replace official cache with a mirror located in China
+      # Feel free to remove this line if you are not in China
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://cache.nixos.org"
     ];

@@ -10,6 +10,7 @@
 #
 ############################################################################
 
+#  Feel free to remove this target if you don't to set proxy
 darwin-set-proxy:
 	sudo python3 scripts/darwin_set_proxy.py
 
