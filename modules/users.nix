@@ -1,13 +1,15 @@
 { ... }:
 
+let
+  # TODO please update your username
+  username = "xxx";
+in
 {
-  # TODO please update your host name
-  nix.settings.trusted-users = ["ryan"];
+  nix.settings.trusted-users = [ username ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ryan = {
-    # TODO please update your user information
-    home = "/Users/ryan";
-    description = "ryan";
+    home = "/Users/${username}";
+    description = username;
   };
 }
