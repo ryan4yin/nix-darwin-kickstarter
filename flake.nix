@@ -39,7 +39,8 @@
     darwinConfigurations."hostname" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";  # change this to "aarch64-darwin" if you are using Apple Silicon
       modules = [
-        ./modules/core.nix
+        ./modules/nix-core.nix
+        ./modules/system.nix
         ./modules/apps.nix
 
         ./modules/host.nix
