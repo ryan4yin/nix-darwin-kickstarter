@@ -15,7 +15,8 @@
   ##########################################################################
 
 
-  # Homebrew Mirror
+  # Homebrew Mirror in China
+  # Feel free to remove this if you are not in China.
   environment.variables = {
     HOMEBREW_API_DOMAIN = "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api";
     HOMEBREW_BOTTLE_DOMAIN = "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles";
@@ -24,8 +25,11 @@
     HOMEBREW_PIP_INDEX_URL = "https://pypi.tuna.tsinghua.edu.cn/simple";
   };
 
-
   # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
+  # 
+  # The apps installed by homebrew are not managed by nix, and not reproducible!
+  # But Homebrew has a much larger selection of apps than nixpkgs, especially for GUI apps!
+  # And Homebrew is much more popular than nixpkgs, so it's easier to find help online.
   homebrew = {
     enable = true;
 

@@ -30,8 +30,12 @@
   # this is required if you want to use darwin's default shell - zsh
   programs.zsh.enable = true;
 
-  # Install packages from nix's official package repository
-  # It's less stable than homebrew on macOS, so we mainly use homebrew to install packages.
+  # Install packages from nix's official package repository.
+  #
+  # The packages installed here are available to all users, and are reproducible across machines, and are rollbackable.
+  # But on macOS, it's less stable than homebrew.
+  #
+  # Related Discussion: https://discourse.nixos.org/t/darwin-again/29331
   environment.systemPackages = with pkgs; [
     git
   ];

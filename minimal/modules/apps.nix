@@ -16,6 +16,10 @@
 
 
   # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
+  # 
+  # The apps installed by homebrew are not managed by nix, and not reproducible!
+  # But Homebrew has a much larger selection of apps than nixpkgs, especially for GUI apps!
+  # And Homebrew is much more popular than nixpkgs, so it's easier to find help online.
   homebrew = {
     enable = true;
 
