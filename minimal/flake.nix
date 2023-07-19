@@ -43,8 +43,7 @@
         ./modules/system.nix
         ./modules/apps.nix
 
-        ./modules/host.nix
-        ./modules/users.nix
+        ./modules/host-users.nix
       ];
     };
 
