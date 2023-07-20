@@ -18,7 +18,7 @@ A minimal configuration that only contains the necessary configuration to start 
 	./result/sw/bin/darwin-rebuild switch --flake .#hostname
    ```
 
-You can simplify the command by adding the following content by create a Makefile in the root of your nix configuration:
+You can simplify the command by adding the following content by create a `Makefile` in the root of your nix configuration:
 
 ```makefile
 # please change 'hostname' to your hostname
