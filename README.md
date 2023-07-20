@@ -1,4 +1,4 @@
-# Nix Darwin Kickstart
+# Nix Darwin Kickstarter
 
 An easy-to-understand nix-darwin + home-manager + flakes startup configuration for beginners.
 
