@@ -9,7 +9,7 @@ A minimal configuration that only contains the necessary configuration to start 
    1. If you have trouble understanding, [ryan4yin/nixos-and-flakes-book](https://github.com/ryan4yin/nixos-and-flakes-book) is a good resource to learn nix and flakes.
 3. Install Homebrew, see <https://brew.sh/>
    1. Homebrew is required to install most of the GUI apps, App Store's apps, and some CLI apps that are not available in nix's package repository `nixpkgs`.
-4. Search `TODO` in this repository, and complete the configuration.
+4. Search `TODO` in this repository, and complete all the TODOs.
 5. Run the following command to start your nix-darwin journey(please change `hostname` to your hostname):
    ```bash
 	nix build .#darwinConfigurations.hostname.system \
