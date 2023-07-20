@@ -9,8 +9,8 @@
 
 let
   # TODO change this to your hostname & username
-  name = "harmonica";
-  username = "ryan";
+  name = "hostname";
+  username = "xxx";
 in
 {
   networking.hostName = name;
