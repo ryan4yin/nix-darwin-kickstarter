@@ -18,7 +18,7 @@ in
   system.defaults.smb.NetBIOSName = name;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ryan = {
+  users.users."${username}" = {
     home = "/Users/${username}";
     description = username;
   };

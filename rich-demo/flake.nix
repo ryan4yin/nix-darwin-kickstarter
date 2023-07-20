@@ -63,7 +63,9 @@
           home-manager.useUserPackages = true;
 
           home-manager.extraSpecialArgs = inputs;
-          home-manager.users.ryan = import ./home;
+
+          # TODO replace "yourusername" with your own username!
+          home-manager.users.yourusername = import ./home;
         }
       ];
     };
