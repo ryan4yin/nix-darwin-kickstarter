@@ -28,8 +28,8 @@
 
     extraConfig = {
       init.defaultBranch = "main";
-      # push.autoSetupRemote = true;
-      # pull.rebase = true;
+      push.autoSetupRemote = true;
+      pull.rebase = true;
     };
 
     # signing = {

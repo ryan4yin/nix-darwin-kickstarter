@@ -18,7 +18,6 @@
 
   programs.nix-index.enable = true;
 
-  # boot.loader.grub.configurationLimit = 10;
   # do garbage collection weekly to keep disk usage low
   nix.gc = {
     automatic = lib.mkDefault true;
