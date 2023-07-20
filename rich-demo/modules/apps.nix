@@ -2,11 +2,8 @@
 
   ##########################################################################
   # 
-  #  Homebrew specific configuration
+  #  Install all apps and packages here.
   #
-  #  Nixpkgs is not well supported on macOS, I met some strange bug recently.
-  #  So install apps using [homebrew](https://daiderd.com/nix-darwin/manual/index.html#opt-homebrew.enable) here.
-  # 
   #  NOTE: Your can find all available options in:
   #    https://daiderd.com/nix-darwin/manual/index.html
   # 
@@ -14,6 +11,17 @@
   #
   ##########################################################################
 
+  # Install packages from nix's official package repository.
+  #
+  # The packages installed here are available to all users, and are reproducible across machines, and are rollbackable.
+  # But on macOS, it's less stable than homebrew.
+  #
+  # Related Discussion: https://discourse.nixos.org/t/darwin-again/29331
+  environment.systemPackages = with pkgs; [
+    neovim
+    git
+  ];
+  environment.variables.EDITOR = "nvim";
 
   # Homebrew Mirror in China
   # Feel free to remove this if you are not in China.
@@ -28,8 +36,7 @@
   # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
   # 
   # The apps installed by homebrew are not managed by nix, and not reproducible!
-  # But Homebrew has a much larger selection of apps than nixpkgs, especially for GUI apps!
-  # And Homebrew is much more popular than nixpkgs, so it's easier to find help online.
+  # But on macOS, homebrew has a much larger selection of apps than nixpkgs, especially for GUI apps!
   homebrew = {
     enable = true;
 
