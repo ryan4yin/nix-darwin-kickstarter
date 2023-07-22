@@ -10,7 +10,7 @@
 #
 ############################################################################
 
-#  Feel free to remove this target if you don't to set proxy
+#  TODO Feel free to remove this target if you don't need a proxy to speed up the build process
 darwin-set-proxy:
 	sudo python3 scripts/darwin_set_proxy.py
 

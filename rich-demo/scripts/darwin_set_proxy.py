@@ -1,6 +1,6 @@
 """
   Set proxy for nix-daemon to speed up downloads
-  You can safely ignore this file if you don't need it.
+  You can safely ignore this file if you don't need a proxy.
 
   https://github.com/NixOS/nix/issues/1472#issuecomment-1532955973
 """
