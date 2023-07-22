@@ -23,7 +23,7 @@ Your current nix-darwin configuration's structure should be as follows:
 ├── flake.nix   # the entry point of your nix configuration, you need to add your hostname here
 ├── home        # home-manager's configuration folder, help you manage your dotfiles & user-level apps.
 │   ├── bash.nix     # customize bash's dotfiles
-│   ├── core.nix     # user-level apps.
+│   ├── core.nix     # user-level apps from nixpkgs(nix's official package repository)
 │   ├── default.nix  # home-manager's entry point, you need to import all other nix files in home folder here.
 │   ├── git.nix      # customize git's dotfiles
 │   └── starship.nix  # customize starship's dotfiles
