@@ -1,4 +1,4 @@
-# Nix Darwin Kickstart - Rich Demo
+# Nix Darwin Kickstarter - Rich Demo
 
 A rich demo that contains a lot of configuration that can be used as a reference for your own configuration, but it may **OVERWRITE** your system configuration, 
 so **DO NOT** deploy it to your own system directly.

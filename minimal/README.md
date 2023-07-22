@@ -1,4 +1,4 @@
-# Nix Darwin Kickstart - Minimal
+# Nix Darwin Kickstarter - Minimal
 
 A minimal configuration that only contains the necessary configuration to start using nix-darwin, and can be safely deployed to your own system.
 
