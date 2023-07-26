@@ -16,3 +16,9 @@ Two versions of the template are provided here:
 With nix-darwin, you can manage your macOS system configuration & dotfiles in a declarative way, and you can easily rollback to any previous configuration.
 It's also easy to share your configuration with others, and you can easily manage multiple macOS hosts.
 
+
+## References
+
+- [LnL7/nix-darwin](https://github.com/LnL7/nix-darwin)
+- [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)
+
