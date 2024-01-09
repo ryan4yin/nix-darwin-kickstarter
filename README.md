@@ -18,5 +18,5 @@ Sharing configurations becomes seamless, and managing multiple macOS hosts is a 
 ## References
 
 - [LnL7/nix-darwin](https://github.com/LnL7/nix-darwin)
-- [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)
+- [ryan4yin/nix-config/modules/darwin](https://github.com/ryan4yin/nix-config/tree/main/modules/darwin)
 

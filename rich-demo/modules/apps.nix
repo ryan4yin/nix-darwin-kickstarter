@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, ... }: {
 
   ##########################################################################
   # 
@@ -53,7 +53,6 @@
     };
 
     taps = [
-      "homebrew/cask"
       "homebrew/cask-fonts"
       "homebrew/services"
       "homebrew/cask-versions"
@@ -62,10 +61,10 @@
     # `brew install`
     # TODO Feel free to add your favorite apps here.
     brews = [
-      "wget"  # download tool
-      "curl"  # no not install curl via nixpkgs, it's not working well on macOS!
-      "aria2"  # download tool
-      "httpie"  # http client
+      "wget" # download tool
+      "curl" # no not install curl via nixpkgs, it's not working well on macOS!
+      "aria2" # download tool
+      "httpie" # http client
     ];
 
     # `brew install --cask`
@@ -80,17 +79,17 @@
       "discord"
 
       "anki"
-      "clashx"    # proxy tool
-      "iina"      # video player
-      "openinterminal-lite"  # open current folder in terminal
-      "syncthing"  # file sync
-      "raycast"   # (HotKey: alt/option + space)search, caculate and run scripts(with many plugins)
-      "stats"   # beautiful system monitor
-      "eudic"     # 欧路词典
+      "clashx" # proxy tool
+      "iina" # video player
+      "openinterminal-lite" # open current folder in terminal
+      "syncthing" # file sync
+      "raycast" # (HotKey: alt/option + space)search, caculate and run scripts(with many plugins)
+      "stats" # beautiful system monitor
+      "eudic" # 欧路词典
 
       # Development
-      "insomnia"  # REST client
-      "wireshark"  # network analyzer
+      "insomnia" # REST client
+      "wireshark" # network analyzer
     ];
   };
 }
