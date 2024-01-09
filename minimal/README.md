@@ -1,6 +1,6 @@
 # Nix Darwin Kickstarter - Minimal
 
-A minimal configuration that only contains the necessary configuration to start using nix-darwin, and can be safely deployed to your own system.
+ A basic configuration comprising essential settings for initiating nix-darwin. It can be safely deployed to your system.
 
 ## How to Start
 
@@ -56,8 +56,8 @@ If you are in a network environment that requires proxy(such as China), you may 
 
 Please refer to the `rich-demo` folder for more details:
 
-- [rich-demo/scripts/darwin_set_proxy.py](https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo/scripts/darwin_set_proxy.py)
-- [rich-demo/Makefile](https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo/Makefile)
-- [rich-demo - homebrew's mirror settings](https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo/modules/apps.nix#L26-L34)
+- [rich-demo/scripts/darwin_set_proxy.py](/rich-demo/scripts/darwin_set_proxy.py)
+- [rich-demo/Makefile](/rich-demo/Makefile)
+- [rich-demo - homebrew's mirror settings](/rich-demo/modules/homebrew-mirror.nix)
 
 

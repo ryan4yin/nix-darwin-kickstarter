@@ -1,21 +1,19 @@
 # Nix Darwin Kickstarter
 
-An easy-to-understand nix-darwin + home-manager + flakes startup configuration for beginners.
+A beginner-friendly nix-darwin + home-manager + flakes startup configuration.
 
-The main purpose of this repository is to help beginners understand the basic configuration of nix-darwin, and to help them quickly start their own nix-darwin configuration.
+The primary objective of this repository is to assist beginners in comprehending the fundamental setup of nix-darwin, enabling them to swiftly initiate their own nix-darwin configuration.
 
+Two template versions are available:
 
-Two versions of the template are provided here:
-
-- [minimal](./minimal): A minimal configuration that only contains the necessary configuration to start using nix-darwin, and can be safely deployed to your own system.
-- [rich-demo](./rich-demo): A rich demo that contains a lot of configuration that can be used as a reference for your own configuration, but it may **OVERWRITE** your system configuration, so **DO NOT** deploy it to your own system directly.
-
+- [minimal](./minimal): A basic configuration comprising essential settings for initiating nix-darwin. It can be safely deployed to your system.
+- [rich-demo](./rich-demo): An extensive demo featuring a plethora of configurations that can serve as a reference for your setup. However, exercise caution, as it may **OVERWRITE** your system configuration. **DO NOT** deploy it directly to your system.
 
 ## Why nix-darwin
 
-With nix-darwin, you can manage your macOS system configuration & dotfiles in a declarative way, and you can easily rollback to any previous configuration.
-It's also easy to share your configuration with others, and you can easily manage multiple macOS hosts.
-
+Nix-darwin facilitates the management of your macOS system configuration and dotfiles in a declarative manner.
+You can effortlessly revert to any previous configuration, making it a robust tool for system customization.
+Sharing configurations becomes seamless, and managing multiple macOS hosts is a breeze with nix-darwin.
 
 ## References
 

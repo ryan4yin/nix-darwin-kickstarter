@@ -1,7 +1,6 @@
 # Nix Darwin Kickstarter - Rich Demo
 
-A rich demo that contains a lot of configuration that can be used as a reference for your own configuration, but it may **OVERWRITE** your system configuration, 
-so **DO NOT** deploy it to your own system directly.
+ An extensive demo featuring a plethora of configurations that can serve as a reference for your setup. However, exercise caution, as it may **OVERWRITE** your system configuration. **DO NOT** deploy it directly to your system.
 
 
 ## How to Start
@@ -42,9 +41,9 @@ Your current nix-darwin configuration's structure should be as follows:
 
 If you are in a network environment that requires proxy(such as China), you may need to set up proxy for nix and homebrew.
 
-Please refer to the `rich-demo` folder for more details:
+Related files:
 
-- [rich-demo/scripts/darwin_set_proxy.py](https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo/scripts/darwin_set_proxy.py)
-- [rich-demo/Makefile](https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo/Makefile)
-- [rich-demo - homebrew's mirror settings](https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo/modules/apps.nix#L26-L34)
+- [rich-demo/scripts/darwin_set_proxy.py](/rich-demo/scripts/darwin_set_proxy.py)
+- [rich-demo/Makefile](/rich-demo/Makefile)
+- [rich-demo - homebrew's mirror settings](/rich-demo/modules/homebrew-mirror.nix)
 
