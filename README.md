@@ -15,6 +15,16 @@ Nix-darwin facilitates the management of your macOS system configuration and dot
 You can effortlessly revert to any previous configuration, making it a robust tool for system customization.
 Sharing configurations becomes seamless, and managing multiple macOS hosts is a breeze with nix-darwin.
 
+## Showcases
+
+Enable TouchID for sudo with just one line:
+
+![](./_img/nix-darwin-enable-touchid.webp)
+
+Customize (Almost) all your macOS settings via nix-darwin:
+
+![](./_img/customize-your-macos.webp)
+
 ## References
 
 - [LnL7/nix-darwin](https://github.com/LnL7/nix-darwin)
