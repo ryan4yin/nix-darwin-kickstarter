@@ -16,8 +16,6 @@
 
   nix.package = pkgs.nix;
 
-  programs.nix-index.enable = true;
-
   # do garbage collection weekly to keep disk usage low
   nix.gc = {
     automatic = lib.mkDefault true;

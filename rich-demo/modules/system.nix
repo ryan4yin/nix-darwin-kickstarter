@@ -6,8 +6,8 @@
   #
   #  All the configuration options are documented here:
   #    https://daiderd.com/nix-darwin/manual/index.html#sec-options
-  #  and see the source code of this project to get more undocumented options:
-  #    https://github.com/rgcr/m-cli
+  #  Incomplete list of macOS `defaults` commands :
+  #    https://github.com/yannbertrand/macos-defaults
   #
   ###################################################################################
 {
@@ -53,7 +53,9 @@
         TrackpadThreeFingerDrag = true;  # enable three finger drag
       };
 
-      # customize macOS
+      # customize settings that not supported by nix-darwin directly
+      # Incomplete list of macOS `defaults` commands :
+      #   https://github.com/yannbertrand/macos-defaults
       NSGlobalDomain = {
         # `defaults read NSGlobalDomain "xxx"`
         "com.apple.swipescrolldirection" = true;  # enable natural scrolling(default to true)
@@ -106,6 +108,16 @@
           # Avoid creating .DS_Store files on network or USB volumes
           DSDontWriteNetworkStores = true;
           DSDontWriteUSBStores = true;
+        };
+        "com.apple.spaces" = {
+          "spans-displays" = 0; # Display have seperate spaces
+        };
+        "com.apple.WindowManager" = {
+          EnableStandardClickToShowDesktop = 0; # Click wallpaper to reveal desktop
+          StandardHideDesktopIcons = 0; # Show items on desktop
+          HideDesktop = 0; # Do not hide items on desktop & stage manager
+          StageManagerHideWidgets = 0;
+          StandardHideWidgets = 0;
         };
         "com.apple.screensaver" = {
           # Require password immediately after sleep or screen saver begins
