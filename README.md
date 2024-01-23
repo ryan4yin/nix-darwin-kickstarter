@@ -28,5 +28,6 @@ Customize (Almost) all your macOS settings via nix-darwin:
 ## References
 
 - [LnL7/nix-darwin](https://github.com/LnL7/nix-darwin)
+- [macos-defaults](https://github.com/yannbertrand/macos-defaults)
 - [ryan4yin/nix-config/modules/darwin](https://github.com/ryan4yin/nix-config/tree/main/modules/darwin)
 
