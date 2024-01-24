@@ -80,10 +80,7 @@
       "discord"
 
       "anki"
-      "clashx" # proxy tool
       "iina" # video player
-      "openinterminal-lite" # open current folder in terminal
-      "syncthing" # file sync
       "raycast" # (HotKey: alt/option + space)search, caculate and run scripts(with many plugins)
       "stats" # beautiful system monitor
       "eudic" # 欧路词典

@@ -1,13 +1,9 @@
-{ ... }:
+{ username, ... }:
 
-let
-  # please replace xxx with your username
-  username = "xxx";
-in
 {
   # import sub modules
   imports = [
-    ./bash.nix
+    ./shell.nix
     ./core.nix
     ./git.nix
     ./starship.nix
@@ -27,7 +23,7 @@ in
     # You can update Home Manager without changing this value. See
     # the Home Manager release notes for a list of state version
     # changes in each release.
-    stateVersion = "23.05";
+    stateVersion = "23.11";
   };
 
   # Let Home Manager install and manage itself.

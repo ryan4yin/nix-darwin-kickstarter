@@ -1,17 +1,13 @@
-
-{ ... } @ args:
-
+{
+  username,
+  hostname,
+  ...
+} @ args:
 #############################################################
 #
 #  Host & Users configuration
 #
 #############################################################
-
-let
-  # TODO change this to your hostname
-  hostname = "your-hostname";
-  username = "xxx";
-in
 {
   networking.hostName = hostname;
   networking.computerName = hostname;
@@ -23,5 +19,5 @@ in
     description = username;
   };
 
-  nix.settings.trusted-users = [ username ];
+  nix.settings.trusted-users = [username];
 }

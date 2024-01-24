@@ -2,10 +2,10 @@
   description = "Nix for macOS configuration";
 
   ##################################################################################################################
-  # 
+  #
   # Want to know Nix in details? Looking for a beginner-friendly tutorial?
   # Check out https://github.com/ryan4yin/nixos-and-flakes-book !
-  # 
+  #
   ##################################################################################################################
 
   # the nixConfig here only affects the flake itself, not the system configuration!
@@ -38,22 +38,35 @@
     };
   };
 
-  # The `outputs` function will return all the build results of the flake. 
+  # The `outputs` function will return all the build results of the flake.
   # A flake can have many use cases and different types of outputs,
-  # parameters in `outputs` are defined in `inputs` and can be referenced by their names. 
+  # parameters in `outputs` are defined in `inputs` and can be referenced by their names.
   # However, `self` is an exception, this special parameter points to the `outputs` itself (self-reference)
   # The `@` syntax here is used to alias the attribute set of the inputs's parameter, making it convenient to use inside the function.
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:{
-    # TODO please update the whole "hostname" placeholder string to your own hostname!
-    # such as darwinConfigurations.mymac = darwin.lib.darwinSystem {
-    darwinConfigurations."hostname" = darwin.lib.darwinSystem {
-      system = "x86_64-darwin";  # change this to "aarch64-darwin" if you are using Apple Silicon
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    darwin,
+    home-manager,
+    ...
+  }: let
+    username = "__USERNAME__";
+    useremail = "__USEREMAIL__";
+    system = "__SYSTEM__"; # aarch64-darwin or x86_64-darwin
+    hostname = "${username}-macbook";
+    specialArgs =
+      inputs
+      // {
+        inherit username useremail hostname;
+      };
+  in {
+    darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
+      inherit system specialArgs;
       modules = [
         ./modules/nix-core.nix
         ./modules/system.nix
         ./modules/apps.nix
-        ./modules/homebrew-mirror.nix  # comment this line if you don't need a homebrew mirror
-
+        ./modules/homebrew-mirror.nix # comment this line if you don't need a homebrew mirror
         ./modules/host-users.nix
 
         # home manager
@@ -61,16 +74,13 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-
-          home-manager.extraSpecialArgs = inputs;
-
-          # TODO replace "yourusername" with your own username!
-          home-manager.users.yourusername = import ./home;
+          home-manager.extraSpecialArgs = specialArgs;
+          home-manager.users.${username} = import ./home;
         }
       ];
     };
 
-    # nix codee formmater
-    formatter.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.alejandra;
+    # nix code formatter
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
   };
 }
