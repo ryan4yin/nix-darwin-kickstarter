@@ -50,6 +50,7 @@
     home-manager,
     ...
   }: let
+    # TODO replace with your own username and system
     username = "__USERNAME__";
     useremail = "__USEREMAIL__";
     system = "__SYSTEM__"; # aarch64-darwin or x86_64-darwin
