@@ -44,6 +44,6 @@ If you are in a network environment that requires proxy(such as China), you may 
 Related files:
 
 - [rich-demo/scripts/darwin_set_proxy.py](/rich-demo/scripts/darwin_set_proxy.py)
-- [rich-demo/Makefile](/rich-demo/Makefile)
+- [rich-demo/Justfile](/rich-demo/Justfile)
 - [rich-demo - homebrew's mirror settings](/rich-demo/modules/homebrew-mirror.nix)
 
