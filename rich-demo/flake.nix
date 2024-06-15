@@ -21,11 +21,11 @@
   # Each item in `inputs` will be passed as a parameter to the `outputs` function after being pulled and built.
   inputs = {
     # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
 
     # home-manager, used for managing user configuration
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       # The `follows` keyword in inputs is used for inheritance.
       # Here, `inputs.nixpkgs` of home-manager is kept consistent with the `inputs.nixpkgs` of the current flake,
       # to avoid problems caused by different versions of nixpkgs dependencies.
@@ -50,11 +50,12 @@
     home-manager,
     ...
   }: let
-    # TODO replace with your own username and system
+    # TODO replace with your own username, email, system, and hostname
     username = "__USERNAME__";
     useremail = "__USEREMAIL__";
     system = "__SYSTEM__"; # aarch64-darwin or x86_64-darwin
-    hostname = "${username}-macbook";
+    hostname = "__HOSTNAME__";
+
     specialArgs =
       inputs
       // {

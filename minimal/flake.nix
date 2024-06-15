@@ -21,7 +21,7 @@
   # Each item in `inputs` will be passed as a parameter to the `outputs` function after being pulled and built.
   inputs = {
     # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
@@ -39,11 +39,11 @@
     darwin,
     ...
   }: let
-    # TODO replace with your own username and system
+    # TODO replace with your own username, system and hostname
     username = "__USERNAME__";
     system = "__SYSTEM__"; # aarch64-darwin or x86_64-darwin
+    hostname = "__HOSTNAME__";
 
-    hostname = "${username}-macbook";
     specialArgs =
       inputs
       // {
