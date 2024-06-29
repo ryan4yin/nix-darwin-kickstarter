@@ -9,7 +9,7 @@
 2. Read all the files in this repository, and understand what they do.
    1. If you have trouble understanding, [ryan4yin/nixos-and-flakes-book](https://github.com/ryan4yin/nixos-and-flakes-book) is a good resource to learn nix and flakes.
 3. Copy and CUSTOMIZE the configuration you need from this demo to your own configuration.
-4. Run `make deploy` in the root of your nix configuration to deploy your configuration.
+4. Run `Just darwin` in the root of your nix configuration to deploy your configuration.
 
 ## Configuration Structure
 
@@ -26,7 +26,7 @@ Your current nix-darwin configuration's structure should be as follows:
 │   ├── default.nix  # home-manager's entry point, you need to import all other nix files in home folder here.
 │   ├── git.nix      # customize git's dotfiles
 │   └── starship.nix  # customize starship's dotfiles
-├── Makefile    # a Makefile to simplify your nix-darwin workflow.
+├── Justfile    # a Justfile to simplify your nix-darwin workflow.
 ├── README.md
 ├── modules     # a folder contains all your nix-darwin configuration files
 │   ├── apps.nix        # contains all your homebrew & nix apps(both GUI & CLI)
