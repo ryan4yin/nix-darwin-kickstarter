@@ -54,9 +54,7 @@
     };
 
     taps = [
-      "homebrew/cask-fonts"
       "homebrew/services"
-      "homebrew/cask-versions"
     ];
 
     # `brew install`
