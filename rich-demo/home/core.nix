@@ -46,11 +46,11 @@
 
     # A modern replacement for ‘ls’
     # useful in bash/zsh prompt, not in nushell.
-    exa = {
+    eza = {
       enable = true;
-      enableAliases = true;
       git = true;
       icons = true;
+      enableZshIntegration = true;
     };
 
     # skim provides a single executable: sk.
