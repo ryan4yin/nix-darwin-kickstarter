@@ -4,7 +4,7 @@
 
 ## How to Use
 
-1. Install Nix package manager via [Nix Official](https://nixos.org/download.html#nix-install-macos).
+1. Install Nix package manager via [Nix Official](https://nixos.org/download.html#nix-install-macos) or [DeterminateSystems/nix-installer](https://github.com/DeterminateSystems/nix-installer).
 2. Read all the files in this `minimal` folder, and understand what they do.
    1. If you have trouble understanding, [ryan4yin/nixos-and-flakes-book](https://github.com/ryan4yin/nixos-and-flakes-book) is a good resource to learn nix and flakes.
 3. Install Homebrew, see <https://brew.sh/>
