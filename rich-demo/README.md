@@ -11,6 +11,17 @@
 3. Copy and CUSTOMIZE the configuration you need from this demo to your own configuration.
 4. Run `just darwin` in the root of your nix configuration to deploy your configuration.
 
+Other Juse commands:
+
+```bash
+# See all available commands
+just
+
+# Clean up the nix store
+just clean
+just gc
+```
+
 ## Configuration Structure
 
 Your current nix-darwin configuration's structure should be as follows:
