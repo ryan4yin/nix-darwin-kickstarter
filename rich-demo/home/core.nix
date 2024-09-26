@@ -1,9 +1,5 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
-    nnn # terminal file manager
-
     # archives
     zip
     xz
@@ -51,6 +47,18 @@
       git = true;
       icons = true;
       enableZshIntegration = true;
+    };
+
+    # terminal file manager
+    programs.yazi = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        manager = {
+          show_hidden = true;
+          sort_dir_first = true;
+        };
+      };
     };
 
     # skim provides a single executable: sk.

@@ -4,9 +4,6 @@
   # 
   #  Install all apps and packages here.
   #
-  #  NOTE: Your can find all available options in:
-  #    https://daiderd.com/nix-darwin/manual/index.html
-  # 
   # TODO Fell free to modify this file to fit your needs.
   #
   ##########################################################################
@@ -32,8 +29,9 @@
     enable = true;
 
     onActivation = {
-      autoUpdate = false;
-      # 'zap': uninstalls all formulae(and related files) not listed here.
+      autoUpdate = true; # Fetch the newest stable branch of Homebrew's git repo
+      upgrade = true; # Upgrade outdated casks, formulae, and App Store apps
+      # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
       cleanup = "zap";
     };
 

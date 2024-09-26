@@ -2,7 +2,7 @@
 
  A basic configuration comprising essential settings for initiating nix-darwin. It can be safely deployed to your system.
 
-## How to Start
+## How to Use
 
 1. Install Nix package manager via [Nix Official](https://nixos.org/download.html#nix-install-macos).
 2. Read all the files in this `minimal` folder, and understand what they do.

@@ -3,7 +3,7 @@
  An extensive demo featuring a plethora of configurations that can serve as a reference for your setup. However, exercise caution, as it may **OVERWRITE** your system configuration. **DO NOT** deploy it directly to your system.
 
 
-## How to Start
+## How to Use
 
 1. Start your nix-darwin journey by following the [minimal](../minimal) configuration.
 2. Read all the files in this repository, and understand what they do.
