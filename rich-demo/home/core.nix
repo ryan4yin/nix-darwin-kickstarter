@@ -50,7 +50,7 @@
     };
 
     # terminal file manager
-    programs.yazi = {
+    yazi = {
       enable = true;
       enableZshIntegration = true;
       settings = {
