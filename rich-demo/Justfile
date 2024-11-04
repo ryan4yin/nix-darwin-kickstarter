@@ -3,6 +3,10 @@
 # TODO update hostname here!
 hostname := "your-hostname"
 
+# List all the just commands
+default:
+  @just --list
+
 ############################################################################
 #
 #  Darwin related commands
@@ -33,10 +37,6 @@ darwin-debug: darwin-set-proxy
 #  nix related commands
 #
 ############################################################################
-
-# List all the just commands
-default:
-    @just --list
 
 # Update all the flake inputs
 [group('nix')]
