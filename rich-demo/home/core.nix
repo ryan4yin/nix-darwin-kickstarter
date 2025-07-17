@@ -45,7 +45,7 @@
     eza = {
       enable = true;
       git = true;
-      icons = true;
+      icons = "auto";
       enableZshIntegration = true;
     };
 
