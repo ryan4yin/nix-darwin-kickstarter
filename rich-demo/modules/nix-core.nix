@@ -10,7 +10,7 @@
     #
     # TODO: set this to false if you're using Determinate Nix.
     # NOTE: Turning off this option will invalidate all of the following nix configurations, 
-    # and you will need to manually modify /etc/nix/nix.conf to add the corresponding parameters.
+    # and you will need to manually modify /etc/nix/nix.custom.conf to add the corresponding parameters.
     enable = true;
 
     package = pkgs.nix;
