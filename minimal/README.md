@@ -15,7 +15,7 @@
 	nix build .#darwinConfigurations.hostname.system \
 		--extra-experimental-features 'nix-command flakes'
 
-	./result/sw/bin/darwin-rebuild switch --flake .#hostname
+	sudo -E ./result/sw/bin/darwin-rebuild switch --flake .#hostname
    ```
 
 To simplify the command, adding the following content by create a `Makefile` in the root of your nix configuration:
@@ -26,7 +26,7 @@ deploy:
 	nix build .#darwinConfigurations.hostname.system \
 	   --extra-experimental-features 'nix-command flakes'
 
-	./result/sw/bin/darwin-rebuild switch --flake .#hostname
+	sudo -E ./result/sw/bin/darwin-rebuild switch --flake .#hostname
 ```
 
 Then you can run `make deploy` in the root of your nix configuration to deploy your configuration.
