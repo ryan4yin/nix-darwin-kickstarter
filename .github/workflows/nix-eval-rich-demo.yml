@@ -1,47 +1,18 @@
-name: Nix Eval Validation
+name: Nix Eval - Rich Demo
 
 on:
   push:
     branches: [main, master]
+    paths:
+      - 'rich-demo/**'
   pull_request:
     branches: [main, master]
+    paths:
+      - 'rich-demo/**'
   workflow_dispatch:
 
 jobs:
-  validate-minimal:
-    name: Validate Minimal Configuration
-    runs-on: macos-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-
-      - name: Update key parameters in minimal/flake.nix
-        run: |
-          cd minimal
-          sed -i '' \
-            -e 's/__USERNAME__/testuser/g' \
-            -e 's/__SYSTEM__/aarch64-darwin/g' \
-            -e 's/__HOSTNAME__/testhost/g' \
-            flake.nix
-
-      - name: Validate minimal configuration with nix eval
-        run: |
-          cd minimal
-          nix eval .#darwinConfigurations.testhost.system \
-            --extra-experimental-features 'nix-command flakes' \
-            --show-trace \
-            > /dev/null
-          echo "✓ Minimal configuration validated successfully"
-
-      - name: Restore minimal/flake.nix
-        if: always()
-        run: |
-          git checkout minimal/flake.nix || true
-
-  validate-rich-demo:
+  validate:
     name: Validate Rich Demo Configuration
     runs-on: macos-latest
     steps:
