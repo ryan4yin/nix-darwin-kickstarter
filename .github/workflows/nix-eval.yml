@@ -1,0 +1,77 @@
+name: Nix Eval Validation
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  validate-minimal:
+    name: Validate Minimal Configuration
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Update key parameters in minimal/flake.nix
+        run: |
+          cd minimal
+          sed -i '' \
+            -e 's/__USERNAME__/testuser/g' \
+            -e 's/__SYSTEM__/aarch64-darwin/g' \
+            -e 's/__HOSTNAME__/testhost/g' \
+            flake.nix
+
+      - name: Validate minimal configuration with nix eval
+        run: |
+          cd minimal
+          nix eval .#darwinConfigurations.testhost.system \
+            --extra-experimental-features 'nix-command flakes' \
+            --show-trace \
+            > /dev/null
+          echo "✓ Minimal configuration validated successfully"
+
+      - name: Restore minimal/flake.nix
+        if: always()
+        run: |
+          git checkout minimal/flake.nix || true
+
+  validate-rich-demo:
+    name: Validate Rich Demo Configuration
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Update key parameters in rich-demo/flake.nix
+        run: |
+          cd rich-demo
+          sed -i '' \
+            -e 's/__USERNAME__/testuser/g' \
+            -e 's/__USEREMAIL__/test@example.com/g' \
+            -e 's/__SYSTEM__/aarch64-darwin/g' \
+            -e 's/__HOSTNAME__/testhost/g' \
+            flake.nix
+
+      - name: Validate rich-demo configuration with nix eval
+        run: |
+          cd rich-demo
+          nix eval .#darwinConfigurations.testhost.system \
+            --extra-experimental-features 'nix-command flakes' \
+            --show-trace \
+            > /dev/null
+          echo "✓ Rich-demo configuration validated successfully"
+
+      - name: Restore rich-demo/flake.nix
+        if: always()
+        run: |
+          git checkout rich-demo/flake.nix || true
+
