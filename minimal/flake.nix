@@ -35,7 +35,7 @@
   # The `@` syntax here is used to alias the attribute set of the inputs's parameter, making it convenient to use inside the function.
   outputs = inputs @ {
     self,
-    nixpkgs,
+    nixpkgs-darwin,
     darwin,
     ...
   }: let
@@ -61,6 +61,6 @@
       ];
     };
     # nix code formatter
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    formatter.${system} = nixpkgs-darwin.legacyPackages.${system}.alejandra;
   };
 }
