@@ -1,42 +1,66 @@
 """
-  Set proxy for nix-daemon to speed up downloads
+  Set proxy for the Nix daemon to speed up downloads.
   You can safely ignore this file if you don't need a proxy.
+
+  The upstream Nix installer and Determinate Nix use different launchd services:
+
+    upstream:    org.nixos.nix-daemon           /Library/LaunchDaemons/org.nixos.nix-daemon.plist
+    Determinate: systems.determinate.nix-daemon /Library/LaunchDaemons/systems.determinate.nix-daemon.plist
+
+  This script patches whichever one is installed.
 
   https://github.com/NixOS/nix/issues/1472#issuecomment-1532955973
 """
-import os
 import plistlib
-import shlex
 import subprocess
+import sys
 from pathlib import Path
 
+# launchd service label -> its plist. Determinate Nix replaces the upstream
+# nix-daemon with its own `determinate-nixd` service.
+NIX_DAEMONS = [
+    (
+        "systems.determinate.nix-daemon",
+        Path("/Library/LaunchDaemons/systems.determinate.nix-daemon.plist"),
+    ),
+    (
+        "org.nixos.nix-daemon",
+        Path("/Library/LaunchDaemons/org.nixos.nix-daemon.plist"),
+    ),
+]
 
-NIX_DAEMON_PLIST = Path("/Library/LaunchDaemons/org.nixos.nix-daemon.plist")
-NIX_DAEMON_NAME = "org.nixos.nix-daemon"
 # http proxy provided by clash or other proxy tools
-HTTP_PROXY = "http://127.0.0.1:7890"       
+HTTP_PROXY = "http://127.0.0.1:7890"
 
-pl = plistlib.loads(NIX_DAEMON_PLIST.read_bytes())
+label, plist = next(((l, p) for l, p in NIX_DAEMONS if p.exists()), (None, None))
+if plist is None:
+    sys.exit(
+        "error: no Nix daemon plist found. Looked for:\n  "
+        + "\n  ".join(str(p) for _, p in NIX_DAEMONS)
+    )
+print(f"configuring proxy for {label}\n  {plist}")
 
-# set http/https proxy
-# NOTE: curl only accept the lowercase of `http_proxy`!
-# NOTE: https://curl.se/libcurl/c/libcurl-env.html
-pl["EnvironmentVariables"]["http_proxy"] = HTTP_PROXY
-pl["EnvironmentVariables"]["https_proxy"] = HTTP_PROXY
+pl = plistlib.loads(plist.read_bytes())
+environment = pl.setdefault("EnvironmentVariables", {})
+# curl only accepts the lowercase of `http_proxy`!
+# https://curl.se/libcurl/c/libcurl-env.html
+environment["http_proxy"] = HTTP_PROXY
+environment["https_proxy"] = HTTP_PROXY
 
 # remove http proxy
-# pl["EnvironmentVariables"].pop("http_proxy", None)
-# pl["EnvironmentVariables"].pop("https_proxy", None)
+# environment.pop("http_proxy", None)
+# environment.pop("https_proxy", None)
 
-os.chmod(NIX_DAEMON_PLIST, 0o644)
-NIX_DAEMON_PLIST.write_bytes(plistlib.dumps(pl))
-os.chmod(NIX_DAEMON_PLIST, 0o444)
+# the plist is read-only by default, flip the mode while we rewrite it
+plist.chmod(0o644)
+plist.write_bytes(plistlib.dumps(pl))
+plist.chmod(0o444)
 
-# reload the plist
+# reload the launchd job so the daemon picks up the new environment. A plain
+# restart (kickstart) would reuse the cached job, so boot it out first.
 for cmd in (
-	f"launchctl unload {NIX_DAEMON_PLIST}",
-	f"launchctl load {NIX_DAEMON_PLIST}",
+    f"launchctl bootout system/{label}",
+    f"launchctl bootstrap system {plist}",
 ):
     print(cmd)
-    subprocess.run(shlex.split(cmd), capture_output=False)
-
+    subprocess.run(cmd.split(), check=False)

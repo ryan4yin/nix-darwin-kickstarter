@@ -10,7 +10,7 @@
   ###################################################################################
 {
   system = {
-    stateVersion = 6;
+    stateVersion = 7;
 
     defaults = {
       menuExtraClock.Show24Hour = true;  # show 24 hour clock
