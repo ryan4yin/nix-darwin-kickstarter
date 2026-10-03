@@ -61,6 +61,6 @@
       ];
     };
     # nix code formatter
-    formatter.${system} = nixpkgs-darwin.legacyPackages.${system}.alejandra;
+    formatter.${system} = nixpkgs-darwin.legacyPackages.${system}.nixfmt;
   };
 }
